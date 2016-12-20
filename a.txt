@@ -14,4 +14,4 @@ git remote set-url origin git@github.com:xxxxxx/xxxxxx.git
 10.sslocal -c /home/kew/a.json
 11.git branch 
 12.git checkoue -b dev
-
+13.解决冲突：git 
