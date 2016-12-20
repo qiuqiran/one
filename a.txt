@@ -5,9 +5,10 @@
 5.git有时候会报这样的问题
 ERROR: Repository not found.
 fatal: Could not read from remote repository.
-
 Please make sure you have the correct access rights and the repository exists.
 6.解决方案是
 git remote set-url origin git@github.com:xxxxxx/xxxxxx.git
 7.git branch dev
-
+8.vi 学习，  
+9.benzildjkhfdajlk
+10.sslocal -c /home/kew/a.json
