@@ -16,3 +16,4 @@ git remote set-url origin git@github.com:xxxxxx/xxxxxx.git
 12.git checkoue -b dev
 13.解决冲突：git 
 14.在公司测试一下
+15.test git checkout dev
