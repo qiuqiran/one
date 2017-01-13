@@ -19,3 +19,5 @@ git remote set-url origin git@github.com:xxxxxx/xxxxxx.git
 15.test git checkout dev
 16.1017/1/13 testr
 17.17/2/8shang上班了，协议下
+18.终于明白了，这样应该就可以了。
+>>>>>>> c82b1f3db0c0cbe287742b200779ab30a3c30b40
