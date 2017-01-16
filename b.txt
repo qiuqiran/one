@@ -12,3 +12,5 @@ git指南
 删除分支 git branch -d two
 更新 git pull
 合并 git merge two
+
+如果在win用git 编写的txt需要用Notepad++编写，并且转为utf-8 无bom格式，否则乱码
