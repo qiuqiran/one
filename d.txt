@@ -1,67 +1,44 @@
-SQLÊı¾İ¿â
+SQLæ•°æ®åº“
 
 
-cmdÁ¬½ÓÊı¾İ¿â
+cmdè¿æ¥æ•°æ®åº“
+1.å®‰è£…mysql
+2.é…ç½®ç¯å¢ƒå˜é‡
+mysql -p ç«¯å£ -h 102.200.2.250 -u tester -p
+ä½¿ç”¨PHPmyadmin
+å†™å®Œå‘½ä»¤ä¹‹åè¦æ‰“ ; å†æ‰“å›è½¦æ‰æœ‰æ•ˆ
 
-1.°²×°mysql
-
-2.ÅäÖÃ»·¾³±äÁ¿
-
-mysql -p ¶Ë¿Ú -h 102.200.2.250 -u tester -p
-
-Ê¹ÓÃPHPmyadmin
-
-Ğ´ÍêÃüÁîÖ®ºóÒª´ò ; ÔÙ´ò»Ø³µ²ÅÓĞĞ§
-
-´´½¨Êı¾İ¿â create database one;
-
-²é¿´ÓĞÄÇĞ©Êı¾İ¿â show databases;
-
-É¾³ıÊı¾İ¿â drop database one;
+åˆ›å»ºæ•°æ®åº“ create database one;
+æŸ¥çœ‹æœ‰é‚£äº›æ•°æ®åº“ show databases;
+åˆ é™¤æ•°æ®åº“ drop database one;
 
 
-¿âÃûone£¬±íÃûtea
+åº“åoneï¼Œè¡¨åtea
 
 |      | name | age  | sex  |
 | ---- | ---- | ---- | ---- |
-| 1    | ÇñÏÈÉú  | 29   | ÄĞ    |
-| 2    | ÎÄĞ¡½ã  | 18   | Å®    |
+| 1    | é‚±å…ˆç”Ÿ  | 29   | ç”·    |
+| 2    | æ–‡å°å§  | 18   | å¥³    |
+
+
+è¿›å…¥æ•°æ®åº“ Use one
+æŸ¥çœ‹æ•°æ®åº“é‡Œé¢æ‰€æœ‰çš„è¡¨Show tables;
+åˆ›å»ºä¸€ä¸ªè¡¨ create table tea(name varchar(20),age int,sex char(2));
+åœ¨è¿™ä¸ªè¡¨æ’å…¥æ•°æ®INSERT INTO tea VALUES('é‚±å…ˆç”Ÿ',29,'ç”·');
+æŸ¥çœ‹ä¸€ä¸ªè¡¨é‡Œé¢æ‰€æœ‰æ•°æ®select * from tea;
+åªæŸ¥çœ‹å…¶ä¸­ä¸€äº›æ•°æ®ï¼Œä¾‹å¦‚å§“åå¹´é¾„select name,age from tea;
+åªæŸ¥çœ‹å…¶ä¸­å‡ ä¸ªæ•°æ®ï¼Œä¾‹å¦‚å§“åå¹´é¾„select name,age from tea where age = 26;
+ä¿®æ”¹è¡¨é‡Œé¢æ•°æ®update tea set name='é‚±éº’ç‡ƒ' where age=29(è¿™æ ·é‚±å…ˆç”Ÿå°±ä¼šä¿®æ”¹ä¸ºé‚±éº’ç‡ƒ);
+Char(m)æŒ‡å›ºå®šå­—ç¬¦ï¼Œvarchar(m)å¯å˜å­—ç¬¦ï¼Œintæ•´æ•°
 
 
 
-
-½øÈëÊı¾İ¿â Use one
-
-²é¿´Êı¾İ¿âÀïÃæËùÓĞµÄ±íShow tables;
-
-´´½¨Ò»¸ö±í create table tea(name varchar(20),age int,sex char(2));
-
-ÔÚÕâ¸ö±í²åÈëÊı¾İINSERT INTO tea VALUES('ÇñÏÈÉú',29,'ÄĞ');
-
-²é¿´Ò»¸ö±íÀïÃæËùÓĞÊı¾İselect * from tea;
-
-Ö»²é¿´ÆäÖĞÒ»Ğ©Êı¾İ£¬ÀıÈçĞÕÃûÄêÁäselect name,age from tea;
-
-Ö»²é¿´ÆäÖĞ¼¸¸öÊı¾İ£¬ÀıÈçĞÕÃûÄêÁäselect name,age from tea where age = 26;
-
-ĞŞ¸Ä±íÀïÃæÊı¾İupdate tea set name='Çñ÷èÈ¼' where age=29(ÕâÑùÇñÏÈÉú¾Í»áĞŞ¸ÄÎªÇñ÷èÈ¼);
+åˆ é™¤æ•°æ® delete from tea where age=18; (ageæ˜¯18çš„éƒ½åˆ é™¤æ‰æ•´ä¸€è¡Œ)
+åˆ é™¤è¡¨æ‰€æœ‰æ•°æ® delete from tea;
+åˆ é™¤è¡¨ drop table tea;
 
 
-
-Char(m)Ö¸¹Ì¶¨×Ö·û£¬varchar(m)¿É±ä×Ö·û£¬intÕûÊı
-
-
-
-É¾³ıÊı¾İ delete from tea where age=18; (ageÊÇ18µÄ¶¼É¾³ıµôÕûÒ»ĞĞ)
-
-É¾³ı±íËùÓĞÊı¾İ delete from tea;
-
-É¾³ı±í drop table tea;
-
-
-¸ù¾İÌõ¼ş¹ıÂË²éÕÒ£¬
-ĞÔ±ğÊÇÄĞµÄËùÓĞÊı¾İ select*from tea where sex='ÄĞ';
-
-ËêÊı´óÓÚ15µÄËùÓĞÊı¾İ select *from tea where age>15;
-
-¶¼ÊÇ18ËêµÄÈËÃûµÄËùÓĞÊı¾İ Select age,name from tea where age=18;
+æ ¹æ®æ¡ä»¶è¿‡æ»¤æŸ¥æ‰¾ï¼Œ
+æ€§åˆ«æ˜¯ç”·çš„æ‰€æœ‰æ•°æ® select*from tea where sex='ç”·';
+å²æ•°å¤§äº15çš„æ‰€æœ‰æ•°æ® select *from tea where age>15;
+éƒ½æ˜¯18å²çš„äººåçš„æ‰€æœ‰æ•°æ® Select age,name from tea where age=18;

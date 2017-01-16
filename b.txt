@@ -1,24 +1,14 @@
-gitÖ¸ÄÏ
+gitæŒ‡å—
 
-´´½¨ĞÂ²Ö¿â git init
-
-¼ì³ö²Ö¿â git clone git@github.com:qiuqiran/one.git
-
-¼ì²é git status
-
-Ìí¼Ó git add a.txt
-
-Ìá½» git commit -m "µÚÒ»´ÎĞŞ¸Ä"
-
-ÍÆËÍ git push origin master
-
-Á¬½ÓÔ¶³Ì·şÎñÆ÷ git remote add origin <server>
-
-´´½¨two·ÖÖ§²¢ÇĞ»»¹ıÈ¥ git checkout -b two
-
-²é¿´ÓĞ¶àÉÙ·ÖÖ§ git branch
-
-É¾³ı·ÖÖ§ git branch -d two
-
-¸üĞÂ git pull
-ºÏ²¢ git merge two
+åˆ›å»ºæ–°ä»“åº“ git init
+æ£€å‡ºä»“åº“ git clone git@github.com:qiuqiran/one.git
+æ£€æŸ¥ git status
+æ·»åŠ  git add a.txt
+æäº¤ git commit -m "ç¬¬ä¸€æ¬¡ä¿®æ”¹"
+æ¨é€ git push origin master
+è¿æ¥è¿œç¨‹æœåŠ¡å™¨ git remote add origin <server>
+åˆ›å»ºtwoåˆ†æ”¯å¹¶åˆ‡æ¢è¿‡å» git checkout -b two
+æŸ¥çœ‹æœ‰å¤šå°‘åˆ†æ”¯ git branch
+åˆ é™¤åˆ†æ”¯ git branch -d two
+æ›´æ–° git pull
+åˆå¹¶ git merge two
