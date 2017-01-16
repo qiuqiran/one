@@ -34,7 +34,7 @@ git remote add origin <server>
 分支
 分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”分支。在其他分支上进行开发，完成后再将它们合并到主分支上。
 
-
+http://rogerdudler.github.io/git-guide/img/branches.png
 创建一个叫做“feature_x”的分支，并切换过去：
 git checkout -b feature_x
 切换回主分支：
