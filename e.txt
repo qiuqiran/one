@@ -1,4 +1,2 @@
-测试一下看看在win写
-这个txt是用Notepad++写
-333
-好像不信呢
+//JavaScript
+1.
