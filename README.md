@@ -1,9 +1,22 @@
-##学习相关技能
+# 最适合东半球同学使用的简单教程
 
-1.`a.txt `是随便测试
+以最简单的方式来学习需要用到的技能
 
-2.`b.txt `是git教程
+## 需要用到的工具
 
-3.`c.txt` 是linux命令教程
-4.`d.txt` 是数据库命令教程
-5.`e.txt` 是JavaScript教程
+
+
+
+
+## 快速开始
+
+1.`test.txt `是随便测试
+
+2.`git.txt `是git教程
+
+3.`linux.txt` 是linux命令教程
+
+4.`sql.txt` 是数据库命令教程
+
+5.`js.txt` 是JavaScript教程
+
