@@ -1,2 +1,17 @@
-//JavaScript
-1.
+//JavaScript这种是注释
+1.console面板输入
+2.弹窗：confirm("XXXXX");
+3.弹窗输入：prompt("XXXXX");
+4.输出（）的结果：console.log("XXXXX");
+5.长度判断："I'm coding like a champ".length>10;
+6.if/else语句逻辑，语法为if(条件){陈述1}else{陈述2}
+
+if( "James".length >= 7 ) {
+    console.log("222");
+}
+else {
+    console.log("333");
+}
+
+7.输出字符串片段:"hello". substring(0, 2);
+8.赋值:var a = "123";
