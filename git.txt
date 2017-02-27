@@ -17,3 +17,5 @@ git指南
 克隆下来的仓库需要把自己的ssh key公钥保存在远程账户里面
 没有的创建 ssh-keygen -t rsa -c "qiuqiran@gmail.com"
 win 地址在C:\Users\Administrator\.ssh里面
+
+有试过没有办法推送是应为改了推送地址，换一下就好了。
