@@ -1,2 +1,8 @@
-//JavaScript
-1.
+//JavaScript这种是注释
+console面板输入
+弹窗：confirm("XXXXX");
+弹窗输入：prompt("XXXXX");
+
+
+
+
