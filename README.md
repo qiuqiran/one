@@ -1,6 +1,7 @@
 # 最适合东半球同学使用的简单教程
 
 以最简单的方式来学习需要用到的技能
+![tu](http://2017.animationdingle.com/wp-content/uploads/2016/08/hello_world.gif)
 
 ## 需要用到的工具
 
