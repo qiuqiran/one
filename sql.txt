@@ -5,9 +5,11 @@ cmd连接数据库
 1.安装mysql
 2.配置环境变量
 mysql -p 端口 -h 102.200.2.250 -u tester -p
+写完命令之后要打 ; 再打回车才有效
+
 使用PHPmyadmin
 使用Navicat for MySQL 图形操作
-写完命令之后要打 ; 再打回车才有效
+
 
 创建数据库 create database one;
 查看有那些数据库 show databases;
@@ -43,3 +45,6 @@ Char(m)指固定字符，varchar(m)可变字符，int整数
 性别是男的所有数据 select*from tea where sex='男';
 岁数大于15的所有数据 select *from tea where age>15;
 都是18岁的人名的所有数据 Select age,name from tea where age=18;
+
+修改网站时间，可以用putty软件链接数据库，date -s 05/09/1989
+同步时间NTP服务器(上海)  ntpdate ntp.api.bz
