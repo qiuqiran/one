@@ -1,0 +1,23 @@
+<!--这里是注释没有用-->
+
+
+<html>
+<body bgcolor="white">
+
+<h1 align="center">之间的文本被显示为标题</h1>
+
+<p>之间的文本被显示为段落<br />
+看看这样写可以不</p><hr /> 
+<p>This is another paragraph</p>
+<p>This is another paragraph</p>
+
+<h2>This is a heading</h2>
+<h1>This is a heading</h1>
+<a href="http://www.baidu.com">This is a link</a>
+
+
+<br \>
+<img src="http://wanzhongtou.f3322.net:8080/assets/img/logo.png" width="357" height="142" />
+
+</body>
+</html>
