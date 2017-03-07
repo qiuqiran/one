@@ -48,3 +48,6 @@ Char(m)指固定字符，varchar(m)可变字符，int整数
 
 修改网站时间，可以用putty软件链接数据库，date -s 05/09/1989
 同步时间NTP服务器(上海)  ntpdate ntp.api.bz
+
+如果是直接在cmd里面查找时间 select now();
+当前日加一天  select date_add(now(), interval 1 day);
