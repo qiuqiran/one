@@ -1,5 +1,7 @@
 1.C:\Windows\System32\drivers\etc  hosts文件地址
-	(hosts 里面设置解析域名，1.1.1.1   b.com 优先访问 
-							1.1.1.2		b.com
-						可以使用cmd  ping b.com 看看是哪一个地址)
+# 1.1.1.1   b.local.com 排在前面优先，可以#注释  
+# 1.1.1.2   b.local.com
+可以使用cmd  ping b.com 检查目前在访问哪一个地址
+						
 2.本地样式不对，直接把XXX\assets\css拖动到这个Koala软件编译再上传就ok
+也可以用自动编译
