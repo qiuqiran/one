@@ -1,4 +1,4 @@
-<!--这里是注释没有用-->
+<!下面是例子>
 
 
 <html>
@@ -12,7 +12,7 @@
 <p>This is another paragraph</p>
 
 <h2>This is a heading</h2>
-<h1>This is a heading</h1>
+<h1 u>This is a heading</h1>
 <a href="http://www.baidu.com">This is a link</a>
 
 
