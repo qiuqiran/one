@@ -14,7 +14,7 @@ git指南
 合并 git merge two
 
 如果在win用git 编写的txt需要用Notepad++编写，并且转为utf-8 无bom格式，否则乱码
-克隆下来的仓库需要把自己的ssh key公钥保存在远程账户里面
+克隆下来的仓库需要把自己的ssh key公钥(id_rsa.pub)保存在远程账户里面
 没有的创建 ssh-keygen -t rsa -c "qiuqiran@gmail.com"
 win 地址在C:\Users\Administrator\.ssh里面
 
