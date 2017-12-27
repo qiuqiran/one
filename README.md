@@ -1,23 +1,3 @@
-# 最适合东半球同学使用的简单教程
+# 多点学习历史
 
-以最简单的方式来学习需要用到的技能
-![tu](http://2017.animationdingle.com/wp-content/uploads/2016/08/hello_world.gif)
-
-## 需要用到的工具
-
-
-
-
-
-## 快速开始
-
-1.`test.txt `是随便测试
-
-2.`git.txt `是git教程
-
-3.`linux.txt` 是linux命令教程
-
-4.`sql.txt` 是数据库命令教程
-
-5.`js.txt` 是JavaScript教程
 
