@@ -1,0 +1,5 @@
+m 使用ssh
+下载OpenSSH for wimdows
+直接使用cmd链接
+ssh root@192.268.1.10
+
