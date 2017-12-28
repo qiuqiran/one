@@ -1,0 +1,17 @@
+下⾯面的代码 冒号后⾯面开始复制 ⼀一共有6次需要输⼊入代码 我都标记出来了了（注意不不要
+在最后多复制⼀一个空格出来）
+1：sudo -i
+链接SSH
+2：wget -N --no-check-certificate https://raw.githubusercontent.com/
+FunctionClub/YankeeBBR/master/bbr.sh && bash bbr.sh install
+蓝底 窗⼝口 按tab键 选择 NO
+选择重启 Y
+链接SSH
+3：sudo -i
+4：bash bbr.sh start
+5：wget --no-check-certificate https://raw.githubusercontent.com/teddysun/
+shadowsocks_install/master/shadowsocksR.sh && chmod +x shadowsocksR.sh
+6：./shadowsocksR.sh
+输⼊入shadowsocks 密码
+输⼊入端⼝口号
+其他⼀一路路回⻋车
