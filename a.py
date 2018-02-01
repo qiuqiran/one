@@ -369,14 +369,95 @@ import math
 #a = ('ashdkjshakdhjkasd')[3:5]
 #print (a)
 
-d = {'a':1,'b':2,'c':3}
-for key in d:
-	print (key)
+#d = {'a':1,'b':2,'c':3}
+#for key in d:
+#	print (key)
 
-for values in d.values():
-	print (values)
-for i,value in enumerate ({'a','b','c'}):
-	print (i,value)
-print ('shuiji[(1,1),(2,4),(3,6)]:')
-for x, y in [(1,1),(2,4),(3,6)]:
-	print (x,y)
+#for values in d.values():
+#	print (values)
+#for i,value in enumerate ({'a','b','c'}):
+#	print (i,value)
+#print ('shuiji[(1,1),(2,4),(3,6)]:')
+#for x, y in [(1,1),(2,4),(3,6)]:
+#	print (x,y)
+
+
+#l = list (range(1,11))#生成 list  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#print (l)
+
+#o = []
+#for x in range (1,11):#生成 [1x1, 2x2, 3x3, ..., 10x10] 
+#	o.append (x * x)
+#print (o)
+
+#a = [x / x for x in range (1,11)]#生成 [1/1, 2/2, 3/3, ..., 10/10] 
+#print (a)
+
+#q = [x*x for x in range(1,11) if x %2 == 0]
+#print (q)
+
+#w = [m + n for m in '1234' for n in '5678']#使用两层循环，可以生成全排列
+#print (w)
+
+#d = {'ben':'23','wemn':'18','wene':'30'}#for 循环其实可以同时使用两个甚至多个变量，比如 dict 的 items() 可以同时迭代 key 和 value：
+#for k , v in d.items ():
+#	print (k , '年龄:' , v)
+
+#s = [k + '=' + v for k , v in d.items ()]#for 循环其实可以同时使用两个甚至多个变量，比如 dict 的 items() 可以同时迭代 key 和 value：
+#print (s)
+
+#l = ['Hello','Worls','Ibm','HJJKK']#把一个 list 中所有的字符串变成小写
+#a = [s.lower () for s in l]
+#print (a)
+
+
+#l = ['Hello','Worls',18,'Ibm',5555555,'333333','HJJKK',None]#---------------110page test-------------------
+#a = [s.lower () for s in l if isinstance (s,str)]
+#print (a)
+
+
+#l = [x * x for x in range (10)]
+#print (l)
+#g = (x * x for x in range (10))
+#for n in g:
+#	print (n)
+
+#-----------------斐波拉契数列------------------------------
+v = input ('enter a number:')
+v = int(v)
+def kew (v):
+	n,a,b = 0,0,1
+	while n <v:
+		yield b
+		a,b = b,a+b
+		n = n +1
+	return 'done'
+
+#print(kew(v))
+
+#print (next(kew(v)))
+#def kew ():
+#	print ('step one ')
+#	yield 1
+#	print ('step two ')
+#	yield (3)
+#	print ('step three ')
+#	yield (5)
+#n = input ('ssss')
+#n = int (n)
+#o = kew()
+#for n in o:
+#	print (n)
+
+
+g = kew (6)
+while True:
+	try:
+		x = next(g)
+		print ('g:',x)
+	except StopIteration as e:
+		print ('Generation return value:',e.value)
+		break
+
+
+
