@@ -423,15 +423,15 @@ import math
 #	print (n)
 
 #-----------------斐波拉契数列------------------------------
-v = input ('enter a number:')
-v = int(v)
-def kew (v):
-	n,a,b = 0,0,1
-	while n <v:
-		yield b
-		a,b = b,a+b
-		n = n +1
-	return 'done'
+#v = input ('enter a number:')
+#v = int(v)
+#def kew (v):
+#	n,a,b = 0,0,1
+#	while n <v:
+#		yield b
+#		a,b = b,a+b
+#		n = n +1
+#	return 'done'
 
 #print(kew(v))
 
@@ -450,14 +450,51 @@ def kew (v):
 #	print (n)
 
 
-g = kew (6)
-while True:
-	try:
-		x = next(g)
-		print ('g:',x)
-	except StopIteration as e:
-		print ('Generation return value:',e.value)
-		break
+#g = kew (6)
+#while True:
+#	try:
+#		x = next(g)
+#		print ('g:',x)
+#	except StopIteration as e:
+#		print ('Generation return value:',e.value)
+#		break
 
 
 
+#-----------------------118 page 没有做练习--------------
+#a = abs 
+#f = a (-122)
+#x = -5
+#y = 6
+#print (f)
+#def kew (x,y,a):
+#	return a(x) + a(y)
+
+#print (kew(x,y,a))
+#def f(x):
+#	return x*x
+#a = f
+#l = []
+#for n in [1,2,3,4,5,6,7,8,9]:
+#	l.append (a(n))
+#print (l)
+
+#r = map (a,[1,2,3,4,5,6,7,8,9])
+#print (list(r))
+
+from functools import reduce
+def kew(x,y):
+	return x * 10 +y
+b = reduce (kew,[1,2,3,4])
+print (b)
+
+#def wen (z,s):
+#	return z * 10 + s
+#c = reduce (wen,[1,2,3,4])
+#print (c) 
+
+def kew1(s):
+	return {'0':0,'1':1,'2':2,'3':3,'5':5,'7':7,'9':9}[s]
+
+k = reduce (kew,map(kew1,'12579'))
+print (k)
