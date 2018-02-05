@@ -482,19 +482,95 @@ import math
 #r = map (a,[1,2,3,4,5,6,7,8,9])
 #print (list(r))
 
-from functools import reduce
-def kew(x,y):
-	return x * 10 +y
-b = reduce (kew,[1,2,3,4])
-print (b)
+#from functools import reduce
+#def kew(x,y):
+#	return x * 10 +y
+#b = reduce (kew,[1,2,3,4])
+#print (b)
 
 #def wen (z,s):
 #	return z * 10 + s
 #c = reduce (wen,[1,2,3,4])
 #print (c) 
 
-def kew1(s):
-	return {'0':0,'1':1,'2':2,'3':3,'5':5,'7':7,'9':9}[s]
+#def kew1(s):
+#	return {'0':0,'1':1,'2':2,'3':3,'5':5,'7':7,'9':9}[s]
 
-k = reduce (kew,map(kew1,'12579'))
-print (k)
+#k = reduce (kew,map(kew1,'12579'))
+#print (k)
+
+#--------------130 test -------------------
+#利用 map() 函数，把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字。
+#输入： ['adam', 'LISA', 'barT'] ，输出： ['Adam','Lisa', 'Bart'] 
+#n = input ('enter name1 :')
+#m = input ('enter name2 :')
+#b = input ('enter name3 :')
+#x = [n,m,b]
+
+#L = []
+#for n in list(map(str.lower,x)):
+#    L.append(n[:1].upper()+n[1:].lower())#没看懂
+#print(L)
+
+#def kew (n):
+#	return n % 2 == 1
+#l = list (filter(kew,[1,2,3,4,5,6,9,10,15]))#在一个 list 中，删掉偶数，只保留奇数，
+#print (l)
+
+
+#---------134 page ----------------------
+#def is_palindrome(n):
+#    nn=int(str(n)[::-1])
+#    return n==nn
+#output = filter(is_palindrome, range(1, 1000))
+#print('1~1000:', list(output))
+#if list(filter(is_palindrome, range(1, 200))) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]:
+#    print('测试成功!')
+#else:
+#    print('测试失败!')
+
+#l = sorted([36,5,-12,9,-21])
+#print (l)
+
+#l = [('Bob', 75), ('Adam', 92), ('Zart', 66), ('Lisa', 88)]
+#def shunxu (t):
+#	return t [0]
+
+#l1 = sorted (l,key = shunxu)
+#print (l1)	
+
+#print(sorted(l,key=lambda x:x[0].lower()))
+#print(sorted(l,key=lambda x:x[1],reverse=True))
+
+#def calc_sum(*args):
+#	ax = 0
+#	for n in args:
+#		ax = ax + n
+#		return ax
+
+#f = calc_sum
+#print (f)
+
+#def lazy_sum(*args):
+#	def sum():
+#		ax = 0
+#		for n in args:
+#			ax = ax + n
+#		return ax
+#	return sum
+#g = lazy_sum(1,3,5,7,9)
+#print (g)
+#pritn (g())
+
+def count():
+	fs = []
+	for i in range(1, 4):
+		def f():
+			return i*i
+		fs.append(f)
+	return fs
+f1, f2, f3 = count()
+
+print (f1)
+
+
