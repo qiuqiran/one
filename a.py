@@ -108,7 +108,7 @@
 #print (x,y)
 
 
-import math
+#import math
 #def enroll(name, gender):
 #print('name:', name)
 #def quadratic(a,b,c):
@@ -562,15 +562,248 @@ import math
 #print (g)
 #pritn (g())
 
-def count():
-	fs = []
-	for i in range(1, 4):
-		def f():
-			return i*i
-		fs.append(f)
-	return fs
-f1, f2, f3 = count()
+#def count():
+#	fs = []
+#	for i in range(1, 4):
+#		def f():
+#			return i*i
+#		fs.append(f)
+#	return fs
+#f1, f2, f3 = count()
 
-print (f1)
+#print (f1)
+#def now():
+#	print ('2018-2-6')
+
+#f = now
+#print (f)
+
+#print(now.__name__)
+#print (f.__name__)
+
+#def kew (f):
+#	def wen (*args,**kw):
+#		print ('call %s():'% f.__name__)
+#		return f (*args,**kw)
+#	return wen
+
+#@log
+def int2(x,base=2):
+	return int(x,base)
+a = int2
+
+print (a('1000000'))
 
 
+import functools
+int3= functools.partial (int,base =2 )#把一个函数的某些参数给固定住（也就是设置默认值）
+c = int3
+print (c('1010101'))
+print (c('1000000',base = 10))
+
+#-----------------------------------------------
+
+' a test module '#任何模块代码的第一个字符串都被视为模块的文档注释
+__author__ = 'Kew Qiran'#使用 __author__ 变量把作者写进去，这样当你公开源代码后别人就可以瞻仰你的大名
+
+#以上就是 Python 模块的标准文件模板，当然也可以全部删掉不写，但是，按标准办事肯定没错。
+import sys
+
+def test():
+	args = sys.argv
+	if len(args)==1:
+		print('Hello, world!')
+	elif len(args)==2:
+		print('Hello, %s!' % args[1])
+	else:
+		print('Too many arguments!')
+if __name__=='__main__':
+	test()
+
+
+def _private_1(name):
+	return 'Hello, %s' % name
+def _private_2(name):
+	return 'Hi, %s' % name
+def greeting(name):
+	if len(name) > 3:
+		return _private_1(name)
+	else:
+		return _private_2(name)
+
+
+
+from PIL import Image#有了 Pillow，处理图片易如反掌。随便找个图片生成缩略图：
+im = Image.open ('E:\kew\dock\mac-os-x-yosemite-pack\Spark Alt.png')
+print (im.format,im.size,im.mode)
+
+im.thumbnail ((200,100))
+im.save ('a1aa.png','PNG')
+
+#--------------------------------------------------------------
+std1 = { 'name': 'Michael', 'score': 98 }
+std2 = { 'name': 'Bob', 'score': 81 }
+
+class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.name, self.score))
+
+    def get_grade(self):
+        if self.score >= 90:
+            return 'A'
+        elif self.score >= 60:
+            return 'B'
+        else:
+            return 'C'
+
+bart = Student('Bart Simpson', 59)
+lisa = Student('Lisa Simpson', 87)
+
+print('bart.name =', bart.name)
+print('bart.score =', bart.score)
+bart.print_score()
+
+print('grade of Bart:', bart.get_grade())
+print('grade of Lisa:', lisa.get_grade())
+
+#-------------------------------------
+print('\n')
+std3 = { 'name': 'kew', 'score': 98 }
+std4 = { 'name': 'wen', 'score': 81 }
+
+class Fuqi(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def qqq(self):
+        print('%s: %s' % (self.name, self.score))
+
+    def get_grade(self):
+        if self.score >= 90:
+            return 'A'
+        elif self.score >= 60:
+            return 'B'
+        else:
+            return 'C'
+
+k = Fuqi('邱', 59)
+w = Fuqi('文', 87)
+
+print('k de name =', k.name)
+print('k de score =', k.score)
+k.qqq()
+w.qqq()
+
+print('kew 枫树:', k.get_grade())
+print('wen 枫树:', w.get_grade())
+
+#-----------------------------------------------------
+
+class Animal(object):
+	"""docstring for Animal"""
+	def run(self):
+		print ('Animal is run...')
+class Dog(Animal):
+	def run (self):
+		print ('Dog is run...')
+
+dog = Dog ()
+dog.run()
+
+animal = Animal()
+animal.run()
+
+a = list()
+b = Animal()
+c = Dog()
+
+print ('a is a list?',isinstance (a, list))
+print ('b is animal?',isinstance (b, Animal))
+print ('c is a dog?',isinstance (c, Dog))
+print ('c is animal?',isinstance (c, Animal))
+print ('b is dog?',isinstance(b, Dog))
+
+#---------------
+def run_twice (animal):
+	animal.run()
+	animal.run()
+
+print (run_twice(Animal()))
+print (run_twice(Dog()))
+
+class Tortoise(Animal):
+	def run(self):
+		print ('Tortoise is run...slowly')
+
+print (run_twice(Tortoise()))
+
+class Kewkk(Animal):
+	def run (self):
+		print ('Kewkk is conming...')
+
+print (run_twice(Kewkk()))
+
+		
+print ('123\'s type is :',type (123))
+print ('kew\'s type is :',type ('kew'))
+print ('None\'s type is :',type (None))
+print (type (123) == type (456))
+
+print ('dog is in animal ?',isinstance (c, Animal))
+print ('\n')
+print (dir('ABC'))
+print ('len\'ABC\' is :',len('ABC'))
+print ('len\'ABC\' is :','ABC'.__len__())
+print ('ABNJJJJ de 小写字符串：','ABNJJJJ'.lower())
+
+class MyObject (object):
+	def __init__(self):
+		self.x = 9
+	def power (self):
+		return self.x * self.x
+
+obj = MyObject()
+
+print ('have x ?',hasattr (obj,'x'))
+print ('MyObject x num is :',obj.x)
+setattr (obj,'y',19)
+print ('have y ?',hasattr (obj,'y'))
+print ('MyObject y num is :',obj.y)
+print ('MyObject y num is :',getattr (obj,'y'))
+
+def ppp (MyObject):
+	if hasattr (obj,'x'):
+		return 300
+	return 100
+#etattr (ppp,'x',12)
+p = ppp(MyObject)
+print (p)
+
+#*----------------184page-------------
+#std1 = { 'name': 'Michael', 'score': 98 }
+#std2 = { 'name': 'Bob', 'score': 81 }
+
+class Student(object):
+	def __init__(self, name):
+		self.name = name
+
+s = Student('Bob')
+s.score = 90
+i = Student ('Michael')
+i.score = 60
+
+
+print (s,'\'s score is :',s.score)
+print (s.name,'\'s score is',s.score)
+print (i.name,i.score)
+#del s.name
+print (i.name)
+
+		
