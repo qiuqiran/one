@@ -633,12 +633,12 @@ def greeting(name):
 
 
 
-from PIL import Image#有了 Pillow，处理图片易如反掌。随便找个图片生成缩略图：
-im = Image.open ('E:\kew\dock\mac-os-x-yosemite-pack\Spark Alt.png')
-print (im.format,im.size,im.mode)
+#from PIL import Image#有了 Pillow，处理图片易如反掌。随便找个图片生成缩略图：
+#im = Image.open ('E:\kew\dock\mac-os-x-yosemite-pack\Spark Alt.png')
+#print (im.format,im.size,im.mode)
 
-im.thumbnail ((200,100))
-im.save ('a1aa.png','PNG')
+#im.thumbnail ((200,100))
+#im.save ('a3aa.png','PNG')
 
 #--------------------------------------------------------------
 std1 = { 'name': 'Michael', 'score': 98 }
@@ -807,3 +807,135 @@ print (i.name,i.score)
 print (i.name)
 
 		
+class Student(object):
+	"""docstring for Student"""
+	def lll(self, arg):
+		self.arg = arg
+		
+s = Student()
+#s2 = Student()
+
+s.name = 'ben'
+print (s.name)
+print ('--------------')
+
+def set_age(self,age):
+	self.age = age
+
+from types import MethodType
+s.set_age = MethodType (set_age, s)
+s.set_age (25)
+print (s.age)
+print ('------------')
+
+s2 = Student()
+
+def set_score (self,score):
+	self.score = score
+Student.set_score = MethodType (set_score,Student)
+
+s.set_score (100)
+print (s.score)
+s2.set_score (199)
+print (s2.score)
+print ('++++++++')
+class Student (object):
+	__slots__ = ('name','age')
+
+s3 = Student()
+s3.name = 'wen'
+print ('s3.name =',s3.name)
+s3.age = 26
+print ('s3.age =',s3.age)
+#s3.score = 140
+print ('=======')
+
+class Student (object):
+	def get_score (self):
+		return self._score
+	def set_score (self,value):
+		if not isinstance (value, int):
+			raise ValueError ('score must be an int!')
+		if value < 0 or value > 100:
+			raise ValueError ('score must between 0 ~ 100!')
+		self._score = value
+
+
+s = Student()
+s.set_score(60)
+print ('s.score is :',s.get_score)
+s.get_score()
+print ('qqqqqqqqqqqqqqqqqqqqqqqqqq')
+class Student (object):
+	@property
+	def score (self):
+		return self._score
+	@score.setter
+	def score (self,value):
+		if not isinstance(value,int):
+			raise ValueError ('score must be an int!')
+		if value < 0 or value > 100:
+			raise ValueError ('score must between 0 ~ 100!')
+		self._score = value
+
+s = Student()
+s.score = 15
+print ('s.score is ',s.score)
+#s.score = 456
+#定义只读属性
+class Nianlingjisuang(object):
+	"""docstring for Nianlingjisuang"""
+	@property
+	def shengri (self):
+		return self._shengri
+	@shengri.setter
+	def shengri (self,value):
+		self._shengri = value 
+	@property
+	def nianling (self):
+		return 2018 - self._shengri#nianling 就是一个只读属性，是算出来的
+n = Nianlingjisuang()
+n.shengri = 1989
+#n1 = nianling()
+print ('shengri is ',2018-n.shengri)
+
+
+#---------190 page --------------
+class Screen (object):
+	@property
+	def width (self):
+		return self._width
+	@width.setter
+	def width (self,value):
+		if not isinstance (value,int):
+			raise ValueError ('width must be an int!')
+		if value < 0:
+			raise ValueError ('width must be > 0')
+		self._width = value
+
+	@property
+	def height (self):
+		return self._height
+	@height.setter
+	def height (self,value):
+		if not isinstance (value,int):
+			raise ValueError ('height must be an int!')
+		if value < 0:
+			raise ValueError ('height must be > 0')
+		self._height = value 
+
+	@property
+	def resolution (self):
+		return self._width * self._height
+
+
+s = Screen()
+s.width = 1027
+s.height = 768
+#s.resolution = s.width*s.height
+print ('width * height is :',s.width,'*',s.height)
+print ('1024 * 768 =',s.resolution)
+
+
+
+
