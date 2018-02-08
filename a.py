@@ -865,6 +865,7 @@ s = Student()
 s.set_score(60)
 print ('s.score is :',s.get_score)
 s.get_score()
+
 print ('qqqqqqqqqqqqqqqqqqqqqqqqqq')
 class Student (object):
 	@property
@@ -936,6 +937,271 @@ s.height = 768
 print ('width * height is :',s.width,'*',s.height)
 print ('1024 * 768 =',s.resolution)
 
+
+class Student (object):
+	def __init__ (self,name):
+		self.name = name
+#	def __str__(self):
+#		return 'Student object (name: %s)' % self.name
+print (Student('Ben'))
+
+
+class Student(object):
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return 'Student object (name: %s)' % self.name #多了这行久可以打引出正常的str
+print(Student('Michael'))
+
+print ('.....................')
+class Student(object):
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return '名字是 : %s' % self.name #多了这行久可以打引出正常的str
+print(Student('小李'))
+
+class Fib (object):
+	def __init__ (self):
+		self.a,self.b = 0,1# 初始化两个计数器 a，b
+
+	def __iter__ (self):
+		return self# 实例本身就是迭代对象，故返回自己
+
+	def __next__ (self):
+		self.a,self.b = self.b,self.a + self.b# 计算下一个值
+		if self.a > 10000:# 退出循环的条件
+			raise StopIteration('looooo!');
+		return self.a # 返回下一个值
+for n in Fib ():
+	print (n)
+
+print (';;;;;;;;;')
+class Fib (object):
+	def __getitem__ (self,n):
+		a,b = 1,1
+		for x in range(n):
+			a,b = b,a+b 
+		return a
+f = Fib()
+print (f[0])
+print (f[10])#取第 n个元素
+
+class Student (object):
+	def __init__ (self):
+		self.name = 'ben'
+		self.age = 56
+	def __getattr__ (self,attr):
+		if attr == 'score':
+			return 992
+		raise AttributeError('\'Student\' object has no attribute\' %s \'' % attr)
+#		      AttributeError('\'Student\' object has no attribute\' %s \'' % attr)
+s = Student()
+print (s.name)
+print (s.score)
+print (s.age)
+#print (s.abs)
+
+class Chain(object):
+	def __init__(self, path=''):
+		self._path = path
+	def __getattr__(self, path):
+		return Chain('%s/%s' % (self._path, path))
+	def __str__(self):
+		return self._path
+	__repr__ = __str__
+
+print(Chain().status.user.timeline.list)
+
+class Student (object):
+	def __init__ (self,name):
+		self.name = name
+	def __call__ (self):
+		print ('My name is %s.' % self.name)
+
+s = Student('bendddd')
+print (s())
+
+from enum import Enum 
+Month = Enum ('Month',('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'))
+for name,member in Month.__members__.items():
+	print (name,'=>',member,',',member.value)
+
+# 广东又很多个地方,排名
+
+Guangdon = Enum ('difang',('深圳','广州','中山','香港','惠州'))
+print ('广东有很多地方，来看看他们的排名把:')
+for name,paiming in Guangdon.__members__.items():
+	print ('第',paiming.value,'名','===>',name)
+
+from enum import Enum, unique
+@unique
+class Weekday (Enum):
+	Sun = 0
+	Mon = 1
+	Tue = 2
+	Wed = 3
+	Thu = 4
+	Fri = 5
+	Sat = 6
+day1 = Weekday.Mon
+print ('Day1 is :',day1)
+print (Weekday.Tue)
+print ('Tue is di ji tian :',Weekday.Tue.value)
+print (Weekday(2))
+print (Weekday(3))
+for xinqi,riqi in Weekday.__members__.items():
+	print (xinqi,'是每个星期的第几天？答案是',riqi,'第',riqi.value,'天')
+
+
+
+class Hello (object):
+	def hello (self,name = 'world'):
+		print ('Hello, %s !'% name)
+h = Hello()
+print (h.hello())
+print(type(Hello))
+print(type(h))
+print ('......')
+def fn (self,name = 'world'):
+	print ('Hello,%s' % name)
+Hello = type ('hello',(object,),dict (hello = fn))
+h = Hello()
+h.hello()
+print (type(Hello))
+print (type(h))
+
+
+print('编写一个 ORM 框架')
+# 创建一个实例：
+#u = User(id = 12345,name = 'Kew',email = 'qiuqiran@qq.com',password = 'ben21675968')
+#保存到数据库
+#u.save()
+#首先来定义 Field 类，它负责保存数据库表的字段名和字段类型：
+
+class Field (object):
+	def __init__(self,name,column_type):
+		self.name = name
+		self.column_type = column_type
+	def __str__(self):
+		return '<%s:%s>' % (self.__class__.__name__,self.name)
+
+
+#在 Field 的基础上，进一步定义各种类型的 Field ，比如 StringField ，IntegerField 等等：
+class StringField (Field):
+	def __init__(self,name):
+		super(StringField,self).__init__(name,'varchar(100')
+class IntegerField (Field):
+	def __init__(self,name):
+		super(IntegerField,self).__init__(name,'bigint')
+#下一步，就是编写最复杂的 ModelMetaclass 了：
+class ModelMetaclass (type):
+
+	def __new__(cls,name,bases,attrs):
+		if name == 'Model':
+			return type.__new__(cls,name,bases,attrs)
+		print ('Found modle :%s' % name)
+		mappings = dict()
+		for k,v in attrs.items():
+			if isinstance (v,Field):
+				print ('Found mapping: %s ==> %s' % (k,v))
+				mappings[k] = v
+		for k in mappings.keys():
+			attrs.pop(k)
+		attrs['__mappings__'] = mappings # 保存属性和列的映射关系
+		attrs['__table__'] = name # 假设表名和类名一致
+		return type.__new__(cls,name,bases,attrs)
+
+
+#以及基类 Model ：
+class Model (dict,metaclass = ModelMetaclass):
+
+	def __init__(self,**kw):
+		super (Model,self).__init__(**kw)
+
+	def __getattr__(self,key):
+		try :
+			return self[key]
+		except KeyError:
+			raise AttributeError(r"'Model' object has no attribute '%s' " % key)
+
+	def __setattr__(self,key,value):
+		self[key] = value
+
+	def save(self):
+		fields = []
+		params = []
+		args = []
+		for k,v in self.__mappings__.items():
+			fields.append(v.name)
+			params.append('?')
+			args.append(getattr(self,k,None))
+		sql = 'insert inio %s (%s) values (%s)' % (self.__table__,','.join(fields),','.join(params))
+		print ('SQL: %s'% sql)
+		print ('ARGS: %s'% str(args))
+
+# 定义类的属性到列的映射：
+class User (Model):
+	id = IntegerField('id')
+	name = StringField('username')
+	email = StringField('email')
+	password = StringField('password')
+
+u = User(id = 12345,name = 'Kew',email = 'qiuqiran@qq.com',password = 'ben21675968')
+u.save()
+
+#可以看到， save() 方法已经打印出了可执行的 SQL 语句，以及参数列表，只需要真正连接到数据库，执行该 SQL 语句，就可以完成真正的功能。不到 100 行代码，我们就通过 metaclass 实现了一个精简的 ORM 框架。
+
+
+try:
+	print('try...')
+	r = 10 / int('2')
+	print('result:', r)
+except ValueError as e:
+	print('ValueError:', e)
+except ZeroDivisionError as e:
+	print('ZeroDivisionError:', e)
+else:
+	print('no error!')
+finally:
+	print('finally...')
+print('END')
+
+print ('llllllllll')
+
+
+
+try:
+	print('这是一个错误调试')
+	r = 10 / int ('3')
+	print ('结果',r)
+except ValueError as e:
+	print ('错误，不是数字',e)
+except ZeroDivisionError as e:
+	print ('分母错误',e)
+else:
+	print ('一切正常')
+
+print ('流程走完')
+
+
+#-------------------------------------
+def foo(s):
+	return 10 / int(3)
+def bar(s):
+	return foo(s) * 2
+def main():
+	bar('0')
+main()
+print ('end')
+#	try:
+#		bar('5')
+#	except Exception as e:
+#		print('Error:', e)
+#	finally:
+#		print('finally...')
+#-------------------------------------
+#看到抛出错误227 page
 
 
 
