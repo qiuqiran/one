@@ -1,0 +1,73 @@
+version: '2'
+
+networks:
+    sites:
+        driver: bridge
+        ipam:
+            config: 
+            - subnet: 172.20.0.0/16
+
+services:
+    volume_zentao_config:
+        container_name: volume_zentao_config
+        image: local.registry:5000/busybox:latest
+        volumes:
+            - /opt/volumes/zentao/config/:/sites/zentaopms/config/
+
+    volume_zentao_data:
+        container_name: volume_zentao_data
+        image: local.registry:5000/busybox:latest
+        volumes:
+            - /opt/volumes/zentao/data/:/sites/zentaopms/www/data/
+
+    volume_zentao_log:
+        container_name: volume_zentao_log
+        image: local.registry:5000/busybox:latest
+        volumes:
+            - /opt/volumes/zentao/log/nginx/:/var/log/nginx/
+            - /opt/volumes/zentao/log/mysql/:/var/log/mysql/
+
+    volume_zentao_mysql:
+        container_name: volume_zentao_mysql
+        image: local.registry:5000/busybox:latest
+        volumes:
+            - /opt/volumes/zentao/mysql/:/var/lib/mysql/
+
+    volume_zentao_backup:
+        container_name: volume_zentao_backup
+        image: local.registry:5000/busybox:latest
+        volumes:
+            - /opt/volumes/zentao/backup/:/sites/zentaopms/tmp/backup/
+
+    zentao:
+        container_name: zentao
+        hostname: zentao
+        restart: always
+        image: local.registry:5000/zentao:ubuntu
+        networks:
+            sites:
+                ipv4_address: 172.20.2.10
+        ports:
+            - "4000:80"
+        extra_hosts:
+            - "local.zentao:172.20.2.10"
+            - "local.mysql:172.20.2.20"
+        depends_on:
+            - zentao_mysql
+        volumes_from:
+            - volume_zentao_config
+            - volume_zentao_data
+            - volume_zentao_log
+            - volume_zentao_backup
+
+    zentao_mysql:
+        container_name: zentao_mysql
+        hostname: zentao_mysql
+        restart: always
+        image: local.registry:5000/mysql:ubuntu
+        networks:
+            sites:
+                ipv4_address: 172.20.2.20
+        volumes_from:
+            - volume_zentao_log
+            - volume_zentao_mysql
